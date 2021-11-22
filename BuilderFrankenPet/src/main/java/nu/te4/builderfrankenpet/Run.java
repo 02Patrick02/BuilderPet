@@ -17,16 +17,16 @@ public class Run {
     }
       public static void main(String[] args) {
            Scanner scan = new Scanner(System.in);
-           String species = "dog";
-           String name;
-           String sex;
-           int legs;
-           int heads;
-           int tails;
+           String species = "";
+           String name = "";
+           String sex = "";
+           int legs = 0;
+           int heads = 0;
+           int tails = 0;
                   
             
            System.out.println("Welcome to Dr Frankenstein's kennel and workshop!");
-           while(species == "dog" || species == "cat"){  
+           while(!species.equalsIgnoreCase("dog")|| !species.equalsIgnoreCase("cat")){  
                 System.out.println("What kind of pet would you like? (dog/cat)");
                 species = scan.nextLine();
                 
@@ -46,24 +46,18 @@ public class Run {
                 heads = scan.nextInt();
                 
                 System.out.println("Well, that's a bit unorthodox. Any way, here's your " + species + ". Enjoy!");
+                break;
            }
            
-        Pet dog = new PetBuilder()
-                .name("P")
-                .heads(2)
-                .tails(3)
-                .sex("male")
-                .legs(4)
+        Pet pet = new PetBuilder()
+                .name(name)
+                .heads(heads)
+                .tails(tails)
+                .sex(sex)
+                .legs(legs)
+                .species(species)
                 .build();
-        
-        Pet cat = new PetBuilder()
-                .name("P")
-                .heads(2)
-                .tails(3)
-                .sex("male")
-                .legs(4)
-                .build();
-         System.out.println(String.format("%s, %s, %s, %s, %s", dog.getName(), dog.getHeads(), dog.getTails(), dog.getSex(), dog.getLegs()));
-         System.out.println(String.format("%s, %s, %s, %s, %s", cat.getName(), cat.getHeads(), cat.getTails(), cat.getSex(), cat.getLegs()));
+
+                pet.present();
       }
 }

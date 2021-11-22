@@ -70,24 +70,11 @@ public class PetBuilder {
     }
     
     public Pet build(){
-        if(species == null){
-             throw new IllegalStateException("Choose between dog or cat");
+        if(species.equalsIgnoreCase("dog")){
+            return new Dog(this);
         }
-        if(name == null){
-             throw new IllegalStateException("Pet must have a name");
+        else{
+            return new Cat(this);
         }
-        if(heads <= 0){
-             throw new IllegalStateException("Pet must atleast have 1 head");
-        }
-        if(legs <= 0){
-             throw new IllegalStateException("Pet must atleast have 4 legs");
-        }
-        if(tails <= 0){
-             throw new IllegalStateException("Pet must have atleast 1 tail");
-        }
-        if(sex == null){
-             throw new IllegalStateException("Pet must be male or female");
-        }
-        return new abstract Pet(this);
     }
 }

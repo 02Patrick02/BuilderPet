@@ -10,21 +10,14 @@ package nu.te4.builderfrankenpet;
  * @author kulev
  */
 public abstract class Pet {
-    private int legs;
-    private int heads;
-    private int tails;
-    private String name;
-    private String sex;
-    private String species;
+    protected int legs;
+    protected int heads;
+    protected int tails;
+    protected String name;
+    protected String sex;
+    protected String species;
     
-    public Pet(int legs, int heads, int tails, String name, String sex, String species){
-        this.legs = legs;
-        this.heads = heads;
-        this.tails = tails;
-        this.name = name;
-        this.sex = sex;
-        this.species = species;
-    }
+
     public Pet(PetBuilder petBuilder){
         this.legs = petBuilder.getLegs();
         this.heads = petBuilder.getHeads();
@@ -71,11 +64,11 @@ public abstract class Pet {
     }
     
     public void present(){
-        speakUp();
+        this.speakUp();
         System.out.println();
-        System.out.println("My name is " + name + "And I am a " + species);
-        System.out.println("I have " + heads + "heads and " + Integer.toString(legs) + " legs.");
-        System.out.println("Also I have " + Integer.toString(tails) + "tails and I am a" + sex);
+        System.out.println("My name is " + name + " And I am a " + species);
+        System.out.println("I have " + heads + " heads and " + Integer.toString(legs) + " legs.");
+        System.out.println("Also I have " + Integer.toString(tails) + " tails and I am a" + sex);
         System.out.println("My life is a mess");
     }
     
